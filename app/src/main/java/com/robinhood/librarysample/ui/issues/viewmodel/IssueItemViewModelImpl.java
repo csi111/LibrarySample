@@ -15,13 +15,18 @@ public class IssueItemViewModelImpl implements IssueItemViewModel {
     }
 
     @Override
+    public String getProfileThumbnailUrl() {
+        return mIssue.getProfileThumbnailUrl();
+    }
+
+    @Override
     public String getTitleText() {
         return mIssue.getTitle();
     }
 
     @Override
     public String getIssueIdText() {
-        return String.valueOf(mIssue.getId());
+        return mIssue.getWriterName() + "(" + String.valueOf(mIssue.getId()) + ")";
     }
 
     @Override

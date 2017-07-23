@@ -4,87 +4,114 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="issueDetailViewModel"
             type="com.robinhood.librarysample.ui.issuedetail.viewmodel.IssueDetailViewModel" />
     </data>
 
-    <LinearLayout
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_comments_list_background"
-        android:orientation="vertical">
-
+        android:background="@color/color_comments_list_background">
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/issue_detail_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="@style/Toolbar"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:title="@{issueDetailViewModel.titleText}" />
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/issue_detail_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="@style/Toolbar"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    app:title="@{issueDetailViewModel.titleText}" />
+
+
+
+
         </android.support.design.widget.AppBarLayout>
 
-        <android.support.design.widget.CoordinatorLayout
-            android:id="@+id/coordinatorLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-            <RelativeLayout
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="?attr/actionBarSize"
+            app:layout_behavior = "@string/appbar_scrolling_view_behavior"
+            >
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="8dp">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/issue_detail_body_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="10dp"
                     android:text="@{issueDetailViewModel.contentsText}"
-                    android:textColor="@color/colorPrimary" />
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black" />
 
 
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/comments_recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_above="@+id/add_comments_container"
-                    android:layout_below="@id/issue_detail_body_textView" />
+                android:id="@+id/comments_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
 
-                <LinearLayout
-                    android:id="@+id/add_comments_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_margin="8dp"
-                    android:orientation="horizontal">
+            </LinearLayout>
 
-                    <EditText
-                        android:id="@+id/write_comment_editText"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        app:binding="@{issueDetailViewModel.commentText}" />
+        </android.support.v4.widget.NestedScrollView>
 
-                    <Button
-                        android:id="@+id/send_comment_button"
-                        android:layout_width="80dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/rounded_button_color_primary"
-                        android:onClick="@{issueDetailViewModel::onClickSendComment}"
-                        android:text="보내기"
-                        android:textColor="@android:color/white" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:padding="10dp"
+            android:background="@android:color/darker_gray">
 
-                </LinearLayout>
-            </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/add_comments_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="35dp"
+            android:background="@drawable/rounded_color_white_background"
+            android:orientation="horizontal">
 
-        </android.support.design.widget.CoordinatorLayout>
+            <EditText
+                android:id="@+id/write_comment_editText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxHeight="180dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="5dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:textColor="@android:color/black"
+                android:background="@android:color/transparent"
+                app:binding="@{issueDetailViewModel.commentText}" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/send_comment_button"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/rounded_button_color_primary"
+                android:onClick="@{issueDetailViewModel::onClickSendComment}"
+                android:text="보내기"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+        </FrameLayout>
+    </android.support.design.widget.CoordinatorLayout>
+
 </layout>

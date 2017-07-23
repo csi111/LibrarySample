@@ -4,6 +4,8 @@ import android.view.View;
 
 public interface IssueItemViewModel {
 
+    String getProfileThumbnailUrl();
+
     String getTitleText();
 
     String getIssueIdText();

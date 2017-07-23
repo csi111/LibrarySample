@@ -29,7 +29,7 @@ public class SplashActivity extends AppCompatActivity {
 
 
     private void showAnimation() {
-        activitySplashBinding.titleTextView.animate().scaleX(1.0f).scaleY(1.0f).setDuration(800).alpha(1.0f).translationY(-700).setInterpolator(new AccelerateInterpolator()).start();
+        activitySplashBinding.titleTextView.animate().scaleX(1.0f).scaleY(1.0f).setDuration(800).alpha(1.0f).setInterpolator(new AccelerateInterpolator()).start();
         activitySplashBinding.inputGithubIdLayout.animate().setDuration(1000).alpha(1.0f).setStartDelay(300).start();
         activitySplashBinding.inputGithubRepoLayout.animate().setDuration(1000).alpha(1.0f).setStartDelay(300).start();
         activitySplashBinding.inputGithubAccessTokenLayout.animate().setDuration(1000).alpha(1.0f).setStartDelay(300).start();

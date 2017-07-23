@@ -5,12 +5,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.robinhood.librarysample.R;
 import com.robinhood.librarysample.databinding.LayoutIssueItemBinding;
 import com.robinhood.librarysample.ui.issues.viewmodel.IssueItemViewModel;
 
 import java.util.Collections;
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 import static com.google.gson.internal.$Gson$Preconditions.checkNotNull;
 
@@ -58,6 +61,12 @@ public class IssuesAdapter extends RecyclerView.Adapter<IssuesAdapter.IssuesView
 
         void bind(IssueItemViewModel viewModel) {
             layoutIssueItemBinding.setItemViewModel(viewModel);
+            Glide.with(itemView.getContext())
+                    .load(viewModel.getProfileThumbnailUrl())
+                    .fitCenter()
+                    .placeholder(R.drawable.ic_person_black_24dp)
+                    .bitmapTransform(new CropCircleTransformation(itemView.getContext()))
+                    .into(layoutIssueItemBinding.profileImageView);
         }
     }
 }

@@ -7,8 +7,10 @@ import com.robinhood.librarysample.base.model.Model;
 public class Issue extends Model {
     private int id;
     private int number;
+    private String writerName;
     private String title;
     private String body;
+    private String profileThumbnailUrl;
     private String state;
 
 
@@ -52,6 +54,22 @@ public class Issue extends Model {
         this.state = state;
     }
 
+    public String getProfileThumbnailUrl() {
+        return profileThumbnailUrl;
+    }
+
+    public void setProfileThumbnailUrl(String profileThumbnailUrl) {
+        this.profileThumbnailUrl = profileThumbnailUrl;
+    }
+
+    public String getWriterName() {
+        return writerName;
+    }
+
+    public void setWriterName(String writerName) {
+        this.writerName = writerName;
+    }
+
     public static Issue convertModel(IssueDTO issueDTO) {
         Issue issue = new Issue();
         issue.setId(issueDTO.getId());
@@ -59,6 +77,8 @@ public class Issue extends Model {
         issue.setTitle(issueDTO.getTitle());
         issue.setBody(issueDTO.getBody());
         issue.setState(issueDTO.getState());
+        issue.setProfileThumbnailUrl(issueDTO.getUser().getAvatar_url());
+        issue.setWriterName(issueDTO.getUser().getLogin());
         return issue;
     }
 

@@ -6,12 +6,15 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 
+import com.bumptech.glide.Glide;
 import com.robinhood.librarysample.R;
 import com.robinhood.librarysample.databinding.LayoutCommentItemBinding;
 import com.robinhood.librarysample.ui.issuedetail.viewmodel.CommentItemViewModel;
 
 import java.util.Collections;
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 import static com.google.gson.internal.$Gson$Preconditions.checkNotNull;
 
@@ -59,6 +62,12 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.Commen
 
         void bind(CommentItemViewModel viewModel) {
             layoutCommentItemBinding.setItemViewModel(viewModel);
+            Glide.with(itemView.getContext())
+                    .load(viewModel.getProfileThumbnailUrl())
+                    .fitCenter()
+                    .placeholder(R.drawable.ic_person_black_24dp)
+                    .bitmapTransform(new CropCircleTransformation(itemView.getContext()))
+                    .into(layoutCommentItemBinding.profileThumnailImageView);
         }
     }
 }

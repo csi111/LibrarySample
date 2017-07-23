@@ -5,19 +5,24 @@ import com.robinhood.librarysample.data.comment.Comment;
 
 public class CommentItemViewModelImpl implements CommentItemViewModel {
 
-    private Comment mComment;
+    private Comment comment;
 
-    public CommentItemViewModelImpl(Comment mComment) {
-        this.mComment = mComment;
+    public CommentItemViewModelImpl(Comment comment) {
+        this.comment = comment;
+    }
+
+    @Override
+    public String getProfileThumbnailUrl() {
+        return comment.getUser().getAvatarUrl();
     }
 
     @Override
     public String getCommentAuthorIdText() {
-        return mComment.getUser().getLogin();
+        return comment.getUser().getLogin();
     }
 
     @Override
     public String getCommentText() {
-        return mComment.getBody();
+        return comment.getBody();
     }
 }
