@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <data>
+
+        <variable
+            name="issueViewModel"
+            type="com.robinhood.librarysample.ui.issues.viewmodel.IssueViewModel" />
+    </data>
+
+    <com.robinhood.librarysample.base.view.ScrollChildSwipeRefreshLayout
+        android:id="@+id/scrollChildSwipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/issuesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:orientation="vertical">
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/issues_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+    </com.robinhood.librarysample.base.view.ScrollChildSwipeRefreshLayout>
+
+</layout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="itemViewModel"
+            type="com.robinhood.librarysample.ui.issues.viewmodel.IssueItemViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/item_issue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{itemViewModel::onItemClick}"
+        android:orientation="vertical"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:id="@+id/id_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{itemViewModel.issueIdText}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/title_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{itemViewModel.titleText}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</layout>

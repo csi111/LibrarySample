@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="issueDetailViewModel"
+            type="com.robinhood.librarysample.ui.issuedetail.viewmodel.IssueDetailViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_comments_list_background"
+        android:orientation="vertical">
+
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/issue_detail_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="@style/Toolbar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="@{issueDetailViewModel.titleText}" />
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/coordinatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/issue_detail_body_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{issueDetailViewModel.contentsText}"
+                    android:textColor="@color/colorPrimary" />
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/comments_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/add_comments_container"
+                    android:layout_below="@id/issue_detail_body_textView" />
+
+
+                <LinearLayout
+                    android:id="@+id/add_comments_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="8dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/write_comment_editText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        app:binding="@{issueDetailViewModel.commentText}" />
+
+                    <Button
+                        android:id="@+id/send_comment_button"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/rounded_button_color_primary"
+                        android:onClick="@{issueDetailViewModel::onClickSendComment}"
+                        android:text="보내기"
+                        android:textColor="@android:color/white" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </android.support.design.widget.CoordinatorLayout>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,36 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.robinhood.librarysample">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:name=".SampleApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.issues.IssuesActivity"
+            android:theme="@style/AppTheme.OverlapSystemBar" />
+
+        <activity
+            android:name=".ui.issuedetail.IssueDetailActivity"
+            android:theme="@style/AppTheme.OverlapSystemBar" />
+
+
+    </application>
+
+</manifest>

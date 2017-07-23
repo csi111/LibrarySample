@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Git Client</string>
+    <string name="input_github_id">Enter Github Id</string>
+    <string name="input_github_repository">Enter Github Repository</string>
+    <string name="menu_title_inqueryIssues">Inquery Issues</string>
+
+
+    <string name="hint_input_github_id">Input Github Id</string>
+    <string name="hint_input_github_repository">Input Github repository</string>
+    <string name="hint_input_github_access_token">Input Your AccessToken</string>
+
+    <string name="enter_main_page">Next Page</string>
+
+    <string name="issues_title">Issue List</string>
+
+    <string name="default_github_id">ArchitectureStudy</string>
+    <string name="default_github_repository">study</string>
+
+    <string name="alert_message_empty_id">Empty Github ID</string>
+    <string name="alert_message_empty_repository">Empty Github Repository</string>
+    <string name="alert_message_empty_accessToken">Empty Github AccessToken</string>
+
+    <string name="github_personal_token">5e5453de20d5339035eb2a011cf9a92a1660a664</string>
+
+</resources>

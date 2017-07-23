@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3d41ff</color>
+    <color name="colorPrimaryDark">#181cfc</color>
+    <color name="colorAccent">#3040ec</color>
+
+
+    <color name="color_comments_list_background">#c0d1db</color>
+</resources>
