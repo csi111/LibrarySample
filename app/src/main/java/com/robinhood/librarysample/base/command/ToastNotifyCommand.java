@@ -14,6 +14,7 @@ public class ToastNotifyCommand implements MessageNotifyCommand {
 
     @Override
     public void execute(String message) {
+        //TODO Toasty or Alerter를 이용하여 메시지를 띄어보자
         ToastMaker.makeShortToast(context, message);
     }
 }

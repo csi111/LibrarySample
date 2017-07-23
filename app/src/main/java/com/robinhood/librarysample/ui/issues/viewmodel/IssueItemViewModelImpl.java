@@ -32,6 +32,7 @@ public class IssueItemViewModelImpl implements IssueItemViewModel {
     @Override
     public void onItemClick(View view) {
         Intent intent = new Intent(view.getContext(), IssueDetailActivity.class);
+        //TODO Parceler를 이용하여 객체를 전달해보자
         intent.putExtra(IssueDetailActivity.EXTRA_ISSUE_NUMBER, mIssue.getNumber());
         intent.putExtra(IssueDetailActivity.EXTRA_ISSUE_TITLE, mIssue.getTitle());
         intent.putExtra(IssueDetailActivity.EXTRA_ISSUE_BODY, mIssue.getBody());

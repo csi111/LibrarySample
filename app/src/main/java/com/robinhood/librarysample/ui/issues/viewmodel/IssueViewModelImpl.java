@@ -34,6 +34,7 @@ public class IssueViewModelImpl implements IssueViewModel {
                 for (Issue issue : issues.getModels()) {
                     itemVMList.add(new IssueItemViewModelImpl(issue));
                 }
+                //TODO EventBus를 이용하여 이벤트를 전달해보자
                 if (notifyUpdateViewModelListener != null) {
                     notifyUpdateViewModelListener.onUpdatedViewModel(itemVMList);
                 }
@@ -41,6 +42,7 @@ public class IssueViewModelImpl implements IssueViewModel {
 
             @Override
             public void onIssuesFailed(int code, String message) {
+                //TODO EventBus를 이용하여 이벤트를 전달해보자
                 if (mMessageNotifyCommand != null) {
                     mMessageNotifyCommand.execute(message);
                 }

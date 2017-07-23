@@ -59,8 +59,6 @@ public class SplashViewModelImpl implements SplashViewModel {
             sharedPreferencesService.setPrefData(PreferenceKey.GITHUB_ID, idText.get());
             sharedPreferencesService.setPrefData(PreferenceKey.GITHUB_REPOSITORY, repoText.get());
             sharedPreferencesService.setPrefData(PreferenceKey.GITHUB_ACCESS_TOKEN, getAccessTokenText().get());
-
-            //TODO Setting Github AccessToken
             GithubConfiguration.getInstance().setAccessToken("token " + getAccessTokenText().get());
 
             enterMainView();

@@ -55,6 +55,7 @@ public class IssuesFragment extends Fragment {
         issuesViewModel.setUpdateViewModelListener(new NotifyUpdateViewModelListener<List<IssueItemViewModel>>() {
             @Override
             public void onUpdatedViewModel(List<IssueItemViewModel> viewModel) {
+                //TODO EventBus를 이용하여 Event를 전달 받아보자
                 mIssuesAdapter.replaceData(viewModel);
                 if (fragmentIssuesBinding.scrollChildSwipeRefreshLayout.isRefreshing()) {
                     fragmentIssuesBinding.scrollChildSwipeRefreshLayout.setRefreshing(false);

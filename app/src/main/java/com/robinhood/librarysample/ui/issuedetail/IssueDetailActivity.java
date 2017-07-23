@@ -47,6 +47,7 @@ public class IssueDetailActivity extends AppCompatActivity {
 
     private void getIssueDataFromIntent(Intent intent) {
         if (intent != null) {
+            //TODO Parceler를 이용하여 변경 해보자
             Issue issue = new Issue();
             issue.setNumber(getIntent().getIntExtra(EXTRA_ISSUE_NUMBER, -1));
             issue.setTitle(getIntent().getStringExtra(EXTRA_ISSUE_TITLE));
