@@ -195,7 +195,9 @@ public class Logger {
             return;
         }
 
-        if (args.length > 1 && args[0] instanceof Boolean && args[0] == false) return;
+        if (args.length > 1 && args[0] instanceof Boolean && !((boolean) args[0])) {
+            return;
+        }
 
         synchronized (m_objLogLock) {
             print(LOG_LEVEL_DEBUG, args);
@@ -207,7 +209,10 @@ public class Logger {
             return;
         }
 
-        if (args.length > 1 && args[0] instanceof Boolean && args[0] == false) return;
+
+        if (args.length > 1 && args[0] instanceof Boolean && !((boolean) args[0])) {
+            return;
+        }
 
         synchronized (m_objLogLock) {
             print(ONE_MORE_DEEP, LOG_LEVEL_DEBUG, args);
@@ -507,7 +512,9 @@ public class Logger {
             return;
         }
 
-        if (args.length > 1 && args[0] instanceof Boolean && args[0] == false) return;
+        if (args.length > 1 && args[0] instanceof Boolean && !((boolean) args[0])) {
+            return;
+        }
 
         synchronized (m_objLogLock) {
             print(LOG_LEVEL_VERBOSE, args);
