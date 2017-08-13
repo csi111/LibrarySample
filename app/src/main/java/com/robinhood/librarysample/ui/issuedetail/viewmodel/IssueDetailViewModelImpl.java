@@ -2,6 +2,7 @@ package com.robinhood.librarysample.ui.issuedetail.viewmodel;
 
 import android.view.View;
 
+import com.google.firebase.crash.FirebaseCrash;
 import com.robinhood.librarysample.base.command.MessageNotifyCommand;
 import com.robinhood.librarysample.base.databinding.BindableString;
 import com.robinhood.librarysample.data.comment.Comment;
@@ -88,6 +89,8 @@ public class IssueDetailViewModelImpl implements IssueDetailViewModel {
                 if (mNotifyCommand != null) {
                     mNotifyCommand.execute(message);
                 }
+
+                FirebaseCrash.log("onComment Post Failed");
             }
         });
     }

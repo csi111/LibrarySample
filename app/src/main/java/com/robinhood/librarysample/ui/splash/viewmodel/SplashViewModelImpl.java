@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.view.View;
 
+import com.google.firebase.crash.FirebaseCrash;
 import com.robinhood.api.github.model.GithubConfiguration;
 import com.robinhood.librarysample.R;
 import com.robinhood.librarysample.base.databinding.BindableString;
@@ -62,22 +63,27 @@ public class SplashViewModelImpl implements SplashViewModel {
             GithubConfiguration.getInstance().setAccessToken("token " + getAccessTokenText().get());
 
             enterMainView();
+        } else {
+            FirebaseCrash.report(new NullPointerException("Inserted Data must not be null!!!"));
         }
     }
 
     private boolean validateData() {
         if (idText.isEmpty()) {
             ToastMaker.makeShortToast(mActivity, R.string.alert_message_empty_id);
+            FirebaseCrash.log("Empty Github ID");
             return false;
         }
 
         if (repoText.isEmpty()) {
             ToastMaker.makeShortToast(mActivity, R.string.alert_message_empty_repository);
+            FirebaseCrash.log("Empty Github Repository");
             return false;
         }
 
         if (accessTokenText.isEmpty()) {
             ToastMaker.makeShortToast(mActivity, R.string.alert_message_empty_accessToken);
+            FirebaseCrash.log("Empty Github Token");
             return false;
         }
 

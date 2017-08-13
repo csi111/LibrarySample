@@ -1,5 +1,6 @@
 package com.robinhood.librarysample.ui.issuedetail.viewmodel;
 
+import com.google.firebase.crash.FirebaseCrash;
 import com.robinhood.librarysample.base.viewmodel.NotifyUpdateViewModelListener;
 import com.robinhood.librarysample.data.comment.Comment;
 import com.robinhood.librarysample.data.comment.Comments;
@@ -40,6 +41,8 @@ public class CommentsViewModelImpl implements CommentsViewModel, CommentCommande
 
             @Override
             public void onCommentsFailed(int code, String message) {
+                FirebaseCrash.log("Comment List Load Failed code = [" + code + "] message = [" + message + "]");
+                throw new IllegalMonitorStateException("Comment List Failed");
             }
         });
     }
